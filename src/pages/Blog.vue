@@ -2,7 +2,7 @@
   <q-page padding>
     <!-- content -->
     <div class="row">
-       <div  @click="setCurrentPost(itm)" class="col-xs-12 col-sm-6 col-md-4 q-pa-md" v-for="(itm, index) in posts" :key="index">
+       <div  @click="setCurrentPost(itm)" class="col-xs-12 col-sm-6 col-md-6 q-pa-md" v-for="(itm, index) in posts" :key="index">
           <q-card inline class="q-ma-sm">
             <q-card-media>
               <!-- <div style="height:200px; display:block; overflow:hidden">
@@ -46,8 +46,9 @@ export default {
       })
     },
     setCurrentPost (itm) {
-      console.log('hi')
+      console.log('his')
       this.$store.commit('setCurrentPost', itm)
+      this.$router.push('blogs/' + itm.postid)
     }
   }
 }

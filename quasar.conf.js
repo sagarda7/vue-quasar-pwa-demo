@@ -75,11 +75,17 @@ module.exports = function (ctx) {
     // animations: 'all' --- includes all animations
     animations: [],
     ssr: {
-      pwa: false
+      pwa: true
     },
     pwa: {
-      // workboxPluginMode: 'InjectManifest',
-      // workboxOptions: {},
+      workboxPluginMode: 'InjectManifest',
+      runtimeCaching: [
+        {
+          urlPattern: 'https://staging.andmine.com/.*',
+          handler: 'networkFirst'
+        }
+      ],
+      workboxOptions: {},
       manifest: {
         // name: 'Quasar App',
         // short_name: 'Quasar-PWA',
